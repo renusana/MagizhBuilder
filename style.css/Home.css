@@ -1,0 +1,217 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: white;
+    position: relative;
+    box-shadow: 0 5px 6px -2px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* Text inside circles */
+.circle h3 {
+    font-size: 18px;
+    /* default font size for desktop */
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Red arc border (top) with gap */
+.circle.top::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    /* increase = more gap */
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border-radius: 50%;
+    border-top: 15px solid red;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+}
+
+/* Red arc border (bottom) with gap */
+.circle.bottom::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -15px;
+    right: -15px;
+    bottom: -25px;
+    border-radius: 50%;
+    border-bottom: 15px solid red;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid transparent;
+}
+
+/* ============ RESPONSIVE SIZES ============ */
+
+/* Mobile (≤576px) */
+@media (max-width: 576px) {
+    .circle {
+        width: 140px;
+        height: 140px;
+    }
+
+    .circle::before {
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        border-width: 8px;
+    }
+
+    .circle h3 {
+        font-size: 14px;
+        /* smaller font for mobile */
+    }
+}
+
+/* Tablet (≥768px and <1024px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .circle {
+        width: 160px;
+        height: 160px;
+    }
+
+    .circle::before {
+        top: -12px;
+        left: -12px;
+        right: -12px;
+        bottom: -12px;
+        border-width: 9px;
+    }
+
+    .circle h3 {
+        font-size: 16px;
+        /* medium font for tablet */
+    }
+}
+
+/* Desktop (≥1024px) */
+@media (min-width: 1024px) {
+    .circle h3 {
+        font-size: 1.5rem;
+        /* larger font for desktop */
+    }
+}
+
+/* Footer wrapper */
+.site-footer {
+    background: #2A4D69;
+    color: #ffffff;
+    padding: 3rem 1rem;
+    margin-top: 100px;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Grid: 1 col (small), 2 col (>=640px), 4 col (>=992px) */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    align-items: start;
+    text-align: center;
+}
+
+@media (min-width: 640px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Column headings */
+.footer-col h3,
+.footer-col h5 {
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .brand-wrapper {
+        justify-content: flex-start;
+    }
+}
+
+.brand-logo {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.brand-title {
+    font-size: 1.1rem;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0;
+}
+
+.footer-col p {
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+}
+
+/* Contact list */
+.contact-list {
+    margin-top: 0.25rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    margin-top: 3px;
+    fill: #ffffff;
+    opacity: 0.9;
+}
+
+/* Small spacing tweaks for phone/email text */
+.contact-item p {
+    margin: 0;
+}
